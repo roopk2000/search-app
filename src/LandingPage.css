@@ -58,3 +58,22 @@
 
     }
   }
+  .product-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0.5); /* Transparent blue color */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: opacity 0.3s ease; /* Add transition for smooth appearance */
+    opacity: 0; /* Initially, make it invisible */
+  }
+  
+  .grid-item:hover .product-banner {
+    opacity: 1; /* When hovering over grid item, make the banner visible */
+  }
+  
