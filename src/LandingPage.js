@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import faker from 'faker';
 import { Grid as MuiGrid, Button } from '@mui/material';
 
-
+import Sidebar from "./Sidebar";
 
 
 const LandingPage=()=>{
@@ -23,7 +23,7 @@ const LandingPage=()=>{
     // Fetch data from Faker API
     const fetchData = async () => {
       const data = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 100; i++) {
         data.push({
           id: i,
           name: faker.commerce.productName(),
@@ -52,8 +52,9 @@ const LandingPage=()=>{
 
     return (
         <div className="search">
-          
+         
             <TextField
+            style={{ marginLeft: '235px' }}
               className="search-desktop"
               size="small"
               InputProps={{
@@ -67,12 +68,14 @@ const LandingPage=()=>{
               placeholder="Search for items/categories"
               name="search"
               onChange={(e) => {
-               
+                setFilter(e.target.value);
+
               }}
             />
    
     
           <TextField
+          style={{ marginLeft: '235px' }}
             className="search-mobile"
             size="small"
             fullWidth
@@ -87,12 +90,12 @@ const LandingPage=()=>{
             name="search"
             onChange={(e) => {
                 
-               
+              setFilter(e.target.value);
+
             }}
           />
-
-
-<MuiGrid container spacing={2}>
+ <Sidebar />
+<MuiGrid container spacing={2} style={{ marginLeft: '235px' }}>
         {products
           .filter((product) =>
             product.name.toLowerCase().includes(filter.toLowerCase())
